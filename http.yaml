@@ -1,0 +1,8 @@
+- hosts: all
+  tasks:
+    - name: HTTP OS Package Installation
+      package: name=httpd state=present
+    - name: HTTP File Configurations
+      copy: src=./index.html dest=/var/www/html
+    - name: To start HTTP services
+      service: name=htpd state=started enabled=yes
